@@ -1,3 +1,21 @@
+@font-face{
+    font-family: "Open Sans";
+    src: url(czcionki/OpenSans-Regular.ttf);
+    font-weight: normal;
+}
+
+/* @font-face{
+    font-family: "Open Sans";
+    src: url(czcionki/OpenSans-Bold.ttf);
+    font-weight: bold;
+}
+
+@font-face{
+    font-family: "Open Sans";
+    src: url(czcionki/OpenSans-Italic.ttf);
+    font-weight: italic;
+} */
+
 *{
     margin: 0;
     padding: 0;
@@ -5,4 +23,5 @@
 
 body{
     min-height: 100vh;
+    font-family: "Open Sans", sans-serif;
 }

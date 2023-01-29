@@ -1,0 +1,14 @@
+body{
+    size: 18px;
+}
+
+.center{
+    text-align: center;
+}
+
+.border-box{
+    border: 2px solid black;
+    border-radius: 10%;
+    box-shadow: 0.5rem 0.5rem 10px black;
+    padding: 4rem;
+}

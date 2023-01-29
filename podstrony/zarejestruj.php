@@ -1,35 +1,44 @@
-<?php
-
-session_start();
-
-if(!empty($_SESSION))
-{
-    header('Location: logowanie.php');
-    exit();
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <title>Nowy użytkownik</title>
+    <link rel="stylesheet" href="../CSS/center.css">
 </head>
 <body>
     
-    Zarejestruj się na stronie:<br>
+    
+<div class="kontener center">
 
-    <form action="login.php" method="post">
+    <div>
+        Zarejestruj się na stronie:<br>
 
-        Login: <input type="text" name="login" id="login">
-        <br>
-        Hasło: <input type="password" name="haslo" id="haslo">
-        <br>
-        <button type="submit">Zarejestruj się</button>
-        <button type="reset">Wyczyść dane</button>
+        <form action="add_user.php" method="post">
 
-    </form>
+            Login* <input type="text" name="user" id="login">
+            <br>
+            Hasło* <input type="password" name="haslo" id="haslo">
+            <br>
+            E-mail <input type="email" name="email" id="email">
+
+            <br><br>
+
+            * - Pola wymagane
+
+            <br><br>
+
+            <button type="submit">Zarejestruj się</button>
+            <button type="reset">Wyczyść dane</button>
+
+        </form>
+    </div>
+
+    <div>
+        <h4>Jeżeli masz już konto, zaloguj się:</h4>
+        <a href="add_user.php">Zaloguj się</a>
+    </div>
+
+</div>
 
 </body>
 </html>

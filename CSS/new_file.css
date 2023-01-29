@@ -1,0 +1,31 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    size: 18px;
+    min-height: 100vh;
+    font-family: "Open Sans", sans-serif;
+}
+
+.center{
+    text-align: center;
+    min-height: 100vh;
+}
+
+.border-box{
+    border: 2px solid black;
+    padding: 1rem;
+    min-width: 20vw;
+    max-width: 40vw;
+    margin: auto;
+    position: relative;
+    top: 24vh;
+}
+
+h4{
+    font-weight: normal;
+    size: 2rem;
+    margin: 0px 0px 1rem 0px;
+}

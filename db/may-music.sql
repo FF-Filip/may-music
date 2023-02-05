@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 30 Sty 2023, 00:47
+-- Czas generowania: 05 Lut 2023, 14:35
 -- Wersja serwera: 10.4.27-MariaDB
 -- Wersja PHP: 8.1.12
 
@@ -40,6 +40,26 @@ CREATE TABLE `audios` (
 INSERT INTO `audios` (`id`, `audio_url`, `uzytkownik`) VALUES
 (1, 'audio-63d7046b30efb3.49890972.wav', '');
 
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `user` varchar(30) NOT NULL,
+  `password` varchar(40) NOT NULL,
+  `e-mail` tinytext DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
+
+--
+-- Zrzut danych tabeli `users`
+--
+
+INSERT INTO `users` (`id`, `user`, `password`, `e-mail`) VALUES
+(1, 'test-user', 'aafdc23870ecbcd3d557b6423a8982134e17927e', 'test-email@smth.com');
+
 --
 -- Indeksy dla zrzutów tabel
 --
@@ -51,6 +71,12 @@ ALTER TABLE `audios`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeksy dla tabeli `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT dla zrzuconych tabel
 --
 
@@ -59,6 +85,12 @@ ALTER TABLE `audios`
 --
 ALTER TABLE `audios`
   MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT dla tabeli `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

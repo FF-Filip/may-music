@@ -41,6 +41,11 @@ if ($login_result->num_rows === 0)
     $insertQuery = "INSERT INTO users VALUES(null, '$user', '$password', '$email')";
     $conn->query($insertQuery);
 }
+else
+{
+    echo ("Użytkownik o podanej nazwie już istnieje");
+    echo ("<a href='../index.php'>Strona główna</a>");
+}
 
 mysqli_close($conn);
 

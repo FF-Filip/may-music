@@ -10,12 +10,15 @@
 <div class="center">
 
     <div class="border-box">
-        <h4>Wybierz swój plik audio</h4>
-        <form action="add-file.php" method="POST"  enctype="multipart/form-data">
-            <input type="file" id="plik" name="plik">
+        <h2>Dodaj nowy plik audio:</h2>
+        <form action="add-file.php" method="POST" enctype="multipart/form-data">
+            <input type="file" id="plik" name="plik" required><br>
+            <input type="text" name="title" id="title" required><br>
             <input type="submit" value="Dodaj">
         </form>
     </div>
+
+    <footer>Dozwolone rozszerzenia: mp3, m4a, flac, wma, ogg, wav</footer>
 
 </div>
     

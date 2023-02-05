@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -32,7 +38,7 @@ $db_user = 'root';
 $password = '';
 $host = 'localhost';
 
-$user = "";
+$user = '';
 
 $conn = new mysqli($host, $db_user, $password, $baza);
 
@@ -60,19 +66,18 @@ if(isset($_POST['user']) || isset($_SESSION['user']))
     $login_result = $conn->query($checkUser);
     if($login_result->num_rows != 0)
     {
-        // $user = $temp_user;
-        echo ("Znaleziono usera");
+        //echo ("Znaleziono usera");
         $_SESSION['user'] = $temp_user;
 
-        while($row = $login_result->fetch_assoc())
-        {
-            echo("<br>Hasło zapisane<br>");
-            echo ($row['password']);
+        // while($row = $login_result->fetch_assoc())
+        // {
+        //     echo("<br>Hasło zapisane<br>");
+        //     echo ($row['password']);
             
-            echo("<br>Hasło przesłane" . "<br>");
-            echo ($password . "<br>");
-            $user = $temp_user;
-        }
+        //     echo("<br>Hasło przesłane" . "<br>");
+        //     echo ($password . "<br>");
+        //     $user = $temp_user;
+        // }
     }
     else
     {
@@ -85,7 +90,7 @@ if(isset($_POST['user']) || isset($_SESSION['user']))
 <div id="kontener">
 
     <div class="navBar">
-        <h2 id="title">mayMusic</h2>
+        <h2 class="title">mayMusic</h2>
         <ul>
 
             <?php
@@ -115,18 +120,50 @@ if(isset($_POST['user']) || isset($_SESSION['user']))
 
     <?php
 
+    $getFilesQuery = "SELECT * FROM audios";
+    $filesFetch = $conn->query($getFilesQuery);
 
+    //echo ($filesFetch->num_rows);
+    
+    if($filesFetch -> num_rows != 0)
+    {
+        while($row = $filesFetch->fetch_assoc())
+        {
+            echo ('
+                <div class="audio_file">
+                    <h3>' . $row["nazwa"] . '</h3>
+                    <h4>Przesłał: ' . $row["uzytkownik"] . '</h4>
+                    <audio controls>
+                        <source src="upload\\' . $row["audio_url"] . '" type="audio/mpeg">
+                        Twoja przeglądarka nie wspiera elementu audio.
+                    </audio>
+
+                </div>
+            ');
+        }
+    }
+    else
+    {
+        echo ("
+            <div>
+                <h2>Ale tu pusto...</h2>
+                <p>
+                    Zaloguj się i coś dodaj!
+                </p>
+            </div>
+        ");
+    }
 
     ?>
 
-        <div class="audio_file">
+            <!-- <div class="audio_file">
 
-            <audio controls>
-                <!-- <source src="audio-files/bass.wav" type="audio/mpeg"> -->
-                Twoja przeglądarka nie wspiera elementu audio.
-            </audio>
+                <audio controls>
+                    <source src="" type="audio/mpeg">
+                    Twoja przeglądarka nie wspiera elementu audio.
+                </audio>
 
-        </div>
+            </div> -->
 
     <?php
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 05 Lut 2023, 14:35
+-- Czas generowania: 06 Lut 2023, 07:27
 -- Wersja serwera: 10.4.27-MariaDB
 -- Wersja PHP: 8.1.12
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `audios` (
   `id` int(4) NOT NULL,
+  `nazwa` varchar(100) NOT NULL,
   `audio_url` text NOT NULL,
   `uzytkownik` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
@@ -37,8 +38,9 @@ CREATE TABLE `audios` (
 -- Zrzut danych tabeli `audios`
 --
 
-INSERT INTO `audios` (`id`, `audio_url`, `uzytkownik`) VALUES
-(1, 'audio-63d7046b30efb3.49890972.wav', '');
+INSERT INTO `audios` (`id`, `nazwa`, `audio_url`, `uzytkownik`) VALUES
+(1, 'Basix', 'audio-63e018e46b6545.80237137.flac', 'test-user'),
+(2, 'Basix2', 'audio-63e02c11e00f75.43338615.wav', 'test-user');
 
 -- --------------------------------------------------------
 
@@ -58,7 +60,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user`, `password`, `e-mail`) VALUES
-(1, 'test-user', 'aafdc23870ecbcd3d557b6423a8982134e17927e', 'test-email@smth.com');
+(1, 'test-user', 'aafdc23870ecbcd3d557b6423a8982134e17927e', 'test-email@smth.com'),
+(2, '', 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -84,13 +87,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT dla tabeli `audios`
 --
 ALTER TABLE `audios`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -19,10 +19,10 @@ body{
 }
 
 .audio_file{
-    max-width: 100vw;
+    width: 90% !important;
     border-bottom: 1px solid #ffbf00;
     text-align: left;
-    padding: 4vh 20vw;
+    padding: 4vh 16vw;
 }
 
 .audio_file audio{

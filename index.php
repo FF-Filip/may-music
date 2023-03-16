@@ -64,24 +64,14 @@ if(isset($_POST['user']) || isset($_SESSION['user']))
     $checkUser = "SELECT password FROM users WHERE user = '$temp_user' AND password = '$password'";
 
     $login_result = $conn->query($checkUser);
-    if($login_result->num_rows != 0)
+    if($login_result -> num_rows != 0)
     {
-        //echo ("Znaleziono usera");
-        $_SESSION['user'] = $temp_user;
-
-        // while($row = $login_result->fetch_assoc())
-        // {
-        //     echo("<br>Hasło zapisane<br>");
-        //     echo ($row['password']);
-            
-        //     echo("<br>Hasło przesłane" . "<br>");
-        //     echo ($password . "<br>");
-        //     $user = $temp_user;
-        // }
+        $user = $_SESSION['user'] = $temp_user;
+        $temp_user = "";
     }
     else
     {
-        echo ("Nie znaleziono usera");
+        $user = "";
     }
 }
 
@@ -99,6 +89,7 @@ if(isset($_POST['user']) || isset($_SESSION['user']))
             {
                 echo ('<li><a href="podstrony/new_file.php">Dodaj plik</a></li>');
                 echo ('<li><a href="podstrony/wyloguj.php">Wyloguj</a></li>');
+                echo ('<li><a href="podstrony/profil.php">Profil</a></li>');
             }
             else
             {
@@ -122,8 +113,6 @@ if(isset($_POST['user']) || isset($_SESSION['user']))
 
     $getFilesQuery = "SELECT * FROM audios";
     $filesFetch = $conn->query($getFilesQuery);
-
-    //echo ($filesFetch->num_rows);
     
     if($filesFetch -> num_rows != 0)
     {
@@ -153,21 +142,6 @@ if(isset($_POST['user']) || isset($_SESSION['user']))
             </div>
         ");
     }
-
-    ?>
-
-            <!-- <div class="audio_file">
-
-                <audio controls>
-                    <source src="" type="audio/mpeg">
-                    Twoja przeglądarka nie wspiera elementu audio.
-                </audio>
-
-            </div> -->
-
-    <?php
-
-
 
     ?>
 

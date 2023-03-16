@@ -12,10 +12,6 @@ if(!empty($_POST))
         exit("Niepoprawne hasło");
     }
 
-    // $_SESSION['user'] = $_POST['user'];
-    // $_SESSION['haslo'] = $_POST['haslo'];
-    // $_SESSION['email'] = $_POST['email'];
-
     $user = $_POST['user'];
     $haslo = $_POST['haslo'];
     $email = $_POST['email'];
@@ -26,8 +22,6 @@ else
 }
 
 $conn = new mysqli('localhost', 'root', '' ,'may-music');
-
-// $result = $conn->query("SELECT id FROM users WHERE user = '$user'");
 
 $password = sha1($haslo);
 

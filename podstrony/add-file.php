@@ -37,8 +37,7 @@ if (isset($_FILES['plik']))
             header("Location: ../index.php");
             
     	}else {
-    		$em = "Nie możesz dodawać plików tego typu";
-    		header("Location: error_site.php?error=$em");
+    		exit("Nie możesz dodawać plików tego typu");
     	}
     }
 }
@@ -48,3 +47,4 @@ else
     exit("Błąd w przetwarzaniu pliku");
 }
     
+?>

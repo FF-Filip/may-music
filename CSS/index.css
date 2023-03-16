@@ -1,6 +1,51 @@
+:root{
+    --bar: #29293d;
+    --text: #d6d6d6;
+    --link: #ffbf00;
+    --background: #060613;
+}
+
+body{
+    background-color: var(--background);
+}
+
 .audio_list{
     display: block;
     min-height: 80%;
     margin: auto;
+    display: flex;
+    flex-direction: column;
 
+}
+
+.audio_file{
+    width: 90% !important;
+    border-bottom: 1px solid #ffbf00;
+    text-align: left;
+    padding: 4vh 16vw;
+}
+
+.audio_file audio{
+    margin-left: 10vw;
+    float: right;
+}
+
+.audio_file h4{
+    float: left;
+    position: absolute;
+    left: 40%;
+}
+
+.audio_file h3{
+    float: left;
+    font-size: 2.5rem;
+}
+
+.audio_file:last-child{
+    border-bottom: none;
+    border-top: none;
+}
+
+a:hover{
+    text-decoration: underline;
 }

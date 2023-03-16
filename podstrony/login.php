@@ -1,46 +1,34 @@
-<?php
+<!-- 
+Example user:
+    User: test-user
+    Password: pass123
 
-session_start();
+ -->
+<?php
 
 if(!empty($_POST))
 {
-    if(!isset($_POST['login']))
+    if(!isset($_POST['user']))
     {
-        session_destroy();
         exit("Niepoprawny login");
     }
 
     if(!isset($_POST['haslo']))
     {
-        session_destroy();
         exit("Niepoprawne hasło");
     }
 
-    $_SESSION['login'] = $_POST['login'];
-    $_SESSION['haslo'] = $_POST['haslo'];
-
-    $login = $_POST['login'];
+    $user = $_POST['user'];
     $haslo = $_POST['haslo'];
-}
-elseif(!empty($_SESSION))
-{
-    $login = $_SESSION['login'];
-    $haslo = $_SESSION['haslo'];
+    $email = $_POST['email'];
+
 }
 else
 {
-    $login = "";
+    $user = "";
     $haslo = "";
+    $email = "";
 }
-
-$conn = mysqli_connect('localhost', 'root', '' ,'rejestracja_uzytkownikow');
-
-if(mysqli_fetch_row(mysqli_query($conn, "SELECT id FROM uzytkownicy WHERE login = '$login'")) == 0)
-{
-    $insertQuery = mysqli_query($conn, "INSERT INTO uzytkownicy VALUES(null, '$login', '$haslo');");
-}
-
-mysqli_close($conn);
 
 ?>
 
@@ -49,27 +37,39 @@ mysqli_close($conn);
 <head>
     <meta charset="UTF-8">
     <title>Logowanie użytkownika</title>
+    <link rel="stylesheet" href="../CSS/center.css">
 </head>
 <body>
-    
-    Zaloguj się na stronie:<br>
 
-    <form action="../index.php" method="post">
+    <div class="kontener center">
 
-        <?php
+        <div>
+            <h2>Zaloguj się na stronie:</h2>
 
-        echo("Login: <input type='text' name='login' id='login' value='" . $login . "'><br>");
-        echo("Hasło: <input type='password' name='haslo' id='haslo' value='" . $haslo . "'>")
+            <form action="../index.php" method="post">
 
-        ?>
-        
-        <br>
-        
-        <br>
-        <button type="submit">Zaloguj się</button>
-        <button type="reset">Wyczyść dane</button>
+                <?php
 
-    </form>
+                echo("Login: <input type='text' name='user' id='login' value='" . $user . "'><br>");
+                echo("Hasło: <input type='password' name='haslo' id='haslo' value='" . $haslo . "'>");
+
+                ?>
+                
+                <br>
+                
+                <br>
+                <button type="submit">Zaloguj się</button>
+                <button type="reset">Wyczyść dane</button>
+
+            </form>
+        </div>
+
+        <div>
+            <h4>Jeżeli nie masz konta utwórz je:</h4>
+            <a href="zarejestruj.php">Utwórz konto</a>
+        </div>
+
+    </div>
 
 </body>
 </html>

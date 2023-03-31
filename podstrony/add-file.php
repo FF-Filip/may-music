@@ -2,7 +2,8 @@
 
 session_start();
 
-$conn = new mysqli('localhost', 'root', '' ,'may-music');
+require("../db/connection.php");
+require("../db/regexs.php");
 
 if (isset($_FILES['plik']))
 {
@@ -10,6 +11,11 @@ if (isset($_FILES['plik']))
 
     $file = $_FILES['plik'];
     $file_title = $_POST['title'];
+
+    if(preg_match($fileNameRegex, $file['name']))
+    {
+        exit("Niepoprawna nazwa pliku");
+    }
 
     $file_name = $file['name'];
     $tmp_name = $file['tmp_name'];

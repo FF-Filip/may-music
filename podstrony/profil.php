@@ -1,5 +1,6 @@
 <?php
 
+session_id($_COOKIE['userSession']);
 session_start();
 
 if(isset($_SESSION['user']))
@@ -32,7 +33,7 @@ else
 
                 echo($user);
 
-                echo ("<a href='../index.php'>Do strony głównej...</a>");
+                echo ("<br><a href='../index.php'>Do strony głównej...</a>");
 
                 ?>
 

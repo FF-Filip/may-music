@@ -18,16 +18,13 @@ if(!empty($_POST))
         exit("Niepoprawne hasło");
     }
 
-    $user = $_POST['user'];
+    $_SESSION['user'] = $user = $_POST['user'];
     $haslo = $_POST['haslo'];
-    $email = $_POST['email'];
-
 }
 else
 {
     $user = "";
     $haslo = "";
-    $email = "";
 }
 
 ?>

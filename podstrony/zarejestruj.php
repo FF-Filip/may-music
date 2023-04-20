@@ -35,7 +35,7 @@
 
     <div>
         <h4>Jeżeli masz już konto, zaloguj się:</h4>
-        <a href="add-user.php">Zaloguj się</a>
+        <a href="login.php">Zaloguj się</a>
     </div>
 
 </div>

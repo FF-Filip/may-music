@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 06 Lut 2023, 07:27
+-- Czas generowania: 20 Kwi 2023, 23:25
 -- Wersja serwera: 10.4.27-MariaDB
 -- Wersja PHP: 8.1.12
 
@@ -34,10 +34,6 @@ CREATE TABLE `audios` (
   `uzytkownik` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
---
--- Zrzut danych tabeli `audios`
---
-
 -- --------------------------------------------------------
 
 --
@@ -48,15 +44,17 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `user` varchar(30) NOT NULL,
   `password` varchar(40) NOT NULL,
-  `e-mail` tinytext DEFAULT NULL
+  `e-mail` tinytext DEFAULT NULL,
+  `isAdmin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
 -- Zrzut danych tabeli `users`
 --
 
-INSERT INTO `users` (`id`, `user`, `password`, `e-mail`) VALUES
-(1, 'test-user', 'aafdc23870ecbcd3d557b6423a8982134e17927e', 'test-email@smth.com');
+INSERT INTO `users` (`id`, `user`, `password`, `e-mail`, `isAdmin`) VALUES
+(1, 'test-user', 'aafdc23870ecbcd3d557b6423a8982134e17927e', 'test-email@smth.com', 0),
+(2, 'admin', 'f865b53623b121fd34ee5426c792e5c33af8c227', '', 1);
 
 --
 -- Indeksy dla zrzutów tabel

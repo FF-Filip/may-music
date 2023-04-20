@@ -1,8 +1,5 @@
 <?php
 
-if(isset($_COOKIE['userSession'])){
-    session_id($_COOKIE['userSession']);
-}
 session_start();
 
 ?>
@@ -38,7 +35,7 @@ session_start();
 
 require_once("db/connection.php");
 
-if($conn->connect_error)
+if($conn->error)
 {
     $conn->close();
     exit("Błąd w połączeniu serwera!");
@@ -54,10 +51,9 @@ if(isset($_POST['user']) || isset($_SESSION['user']))
     else
     {
         $temp_user = $_SESSION['user'];
-        $password = $_SESSION['haslo'];
     }
 
-    $checkUser = "SELECT password FROM users WHERE user = '$temp_user' AND password = '$password'";
+    $checkUser = "SELECT password FROM users WHERE user = '$temp_user'";
 
     $login_result = $conn->query($checkUser);
     if($login_result -> num_rows != 0)
@@ -86,6 +82,7 @@ if(isset($_POST['user']) || isset($_SESSION['user']))
                 echo ('<li><a href="podstrony/new-file.php">Dodaj plik</a></li>');
                 echo ('<li><a href="podstrony/wyloguj.php">Wyloguj</a></li>');
                 echo ('<li><a href="podstrony/profil.php">Profil</a></li>');
+                echo ('<li><a href="podstrony/admin-panel.php">Panel administratora</a></li>');
             }
             else
             {

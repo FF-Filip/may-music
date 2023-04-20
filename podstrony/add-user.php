@@ -34,7 +34,7 @@ $checkUser = "SELECT password FROM users WHERE user = '$user' AND password = '$p
 $login_result = $conn->query($checkUser);
 
 if ($login_result->num_rows === 0){
-    $insertQuery = "INSERT INTO users VALUES(null, '$user', '$password', '$email')";
+    $insertQuery = "INSERT INTO users VALUES(null, '$user', '$password', '$email', '0')";
     $conn->query($insertQuery);
 
     setcookie("userSession", $user, time() + 900, "../");
@@ -51,6 +51,6 @@ else{
 
 mysqli_close($conn);
 
-//header("Location: login.php");
+header("Location: login.php");
 
 ?>

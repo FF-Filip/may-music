@@ -38,10 +38,6 @@ CREATE TABLE `audios` (
 -- Zrzut danych tabeli `audios`
 --
 
-INSERT INTO `audios` (`id`, `nazwa`, `audio_url`, `uzytkownik`) VALUES
-(1, 'Basix', 'audio-63e018e46b6545.80237137.flac', 'test-user'),
-(2, 'Basix2', 'audio-63e02c11e00f75.43338615.wav', 'test-user');
-
 -- --------------------------------------------------------
 
 --
@@ -60,8 +56,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user`, `password`, `e-mail`) VALUES
-(1, 'test-user', 'aafdc23870ecbcd3d557b6423a8982134e17927e', 'test-email@smth.com'),
-(2, '', 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '');
+(1, 'test-user', 'aafdc23870ecbcd3d557b6423a8982134e17927e', 'test-email@smth.com');
 
 --
 -- Indeksy dla zrzutów tabel

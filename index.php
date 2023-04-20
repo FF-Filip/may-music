@@ -1,5 +1,8 @@
 <?php
 
+if(isset($_COOKIE['userSession'])){
+    session_id($_COOKIE['userSession']);
+}
 session_start();
 
 ?>
@@ -33,14 +36,7 @@ session_start();
 
 <?php
 
-$baza = 'may-music';
-$db_user = 'root';
-$password = '';
-$host = 'localhost';
-
-$user = '';
-
-$conn = new mysqli($host, $db_user, $password, $baza);
+require_once("db/connection.php");
 
 if($conn->connect_error)
 {
@@ -87,7 +83,7 @@ if(isset($_POST['user']) || isset($_SESSION['user']))
         
             if($user != "")
             {
-                echo ('<li><a href="podstrony/new_file.php">Dodaj plik</a></li>');
+                echo ('<li><a href="podstrony/new-file.php">Dodaj plik</a></li>');
                 echo ('<li><a href="podstrony/wyloguj.php">Wyloguj</a></li>');
                 echo ('<li><a href="podstrony/profil.php">Profil</a></li>');
             }

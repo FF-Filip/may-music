@@ -13,7 +13,7 @@
     <div>
         Zarejestruj się na stronie:<br>
 
-        <form action="add_user.php" method="post">
+        <form action="add-user.php" method="post">
 
             Login* <input type="text" name="user" id="login">
             <br>
@@ -35,7 +35,7 @@
 
     <div>
         <h4>Jeżeli masz już konto, zaloguj się:</h4>
-        <a href="add_user.php">Zaloguj się</a>
+        <a href="add-user.php">Zaloguj się</a>
     </div>
 
 </div>
